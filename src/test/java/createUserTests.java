@@ -30,7 +30,7 @@ public class createUserTests {
                     "    \"email\": \"%s\",\n" +
                     "    \"status\": \"active\"\n" +
                     "}",email);
-            //to create a parameter cmd+option+P
+             //to create a parameter cmd+option+P
             //2.Act - calling the API to create user
 
             //CreateUser method can be used by many other methods, hence saved the CreateUser method in seperate class
