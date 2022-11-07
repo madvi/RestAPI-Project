@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5218326b-dc17-461c-8715-74faa2d411bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/createUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/getAllUsersTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/getAllUsersTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +68,8 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.createUserTests.shouldNotAllowNegativeTests">
-    <configuration name="SampleClass.createFemaleUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.createUserTests">
+    <configuration name="createUserNegativeTests.shouldNotAllowNegativeTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -80,30 +82,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;SampleClass.createFemaleUser&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="SampleClass.createNewUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;SampleClass.createNewUser&quot;" />
+            <option value="&quot;createUserNegativeTests.shouldNotAllowNegativeTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -182,13 +161,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="getAllUsersTests.GetListOfUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;getAllUsersTests.GetListOfUsers&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.createUserTests.shouldNotAllowNegativeTests" />
-        <item itemvalue="Gradle.getAllUsersTests" />
         <item itemvalue="Gradle.createUserTests" />
-        <item itemvalue="Gradle.SampleClass.createFemaleUser" />
-        <item itemvalue="Gradle.SampleClass.createNewUser" />
+        <item itemvalue="Gradle.getAllUsersTests" />
+        <item itemvalue="Gradle.getAllUsersTests.GetListOfUsers" />
+        <item itemvalue="Gradle.createUserNegativeTests.shouldNotAllowNegativeTests" />
+        <item itemvalue="Gradle.createUserTests.shouldNotAllowNegativeTests" />
       </list>
     </recent_temporary>
   </component>

@@ -1,8 +1,16 @@
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.UsersClient;
 
 public class createUserNegativeTests {
+
+    private UsersClient usersClient;
+
+    @BeforeClass
+    public void beforeClass(){
+        usersClient = new UsersClient();
+    }
 
     @Test
     public void shouldNotAllowNegativeTests(){
@@ -12,14 +20,14 @@ public class createUserNegativeTests {
                 "    \"email\": \"tenali.ramkrishnace.com\",\n" +
                 "    \"status\": \"active\"\n" +
                 "}";
-        new UsersClient().CreateUser(body)
+        usersClient.CreateUser(body)
                 .then()
-                .log().body()
-                .statusCode(422)
-                //.body(Matchers.hasItem(Matchers.hasEntry("field","email")))
-                .body("field", Matchers.hasItem("email"))
-                //.body(Matchers.hasItem(Matchers.hasEntry("message","is invalid")))
-                .body("message", Matchers.hasItem("is invalid"));
+                    .log().body()
+                    .statusCode(422)
+                    //.body(Matchers.hasItem(Matchers.hasEntry("field","email")))
+                    .body("field", Matchers.hasItem("email"))
+                    //.body(Matchers.hasItem(Matchers.hasEntry("message","is invalid")))
+                    .body("message", Matchers.hasItem("is invalid"));
 
     }
 }
