@@ -2,6 +2,7 @@ package users;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import users.Create.CreateUserRequestBody;
 
 import static io.restassured.RestAssured.given;
 
@@ -10,7 +11,7 @@ public class UsersClient {
     //Refactoring the code by extracting createuser out of this. Response is the inbuilt method of intellij
     //Extracted a code that create the user and "CreateUser" method gives us the response
     //To pass the parameter(body) inside Create user method - cmd+option+P
-    public static Response CreateUser(String body) {
+    public static Response CreateUser(CreateUserRequestBody body) {
         return given()
                     .accept(ContentType.JSON)
                     .contentType(ContentType.JSON)

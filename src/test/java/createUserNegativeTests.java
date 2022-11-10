@@ -1,7 +1,10 @@
 import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import users.Create.CreateUserRequestBody;
 import users.UsersClient;
+
+import java.util.UUID;
 
 public class createUserNegativeTests {
 
@@ -14,13 +17,15 @@ public class createUserNegativeTests {
 
     @Test
     public void shouldNotAllowNegativeTests(){
-        String body = "{\n" +
-                "    \"name\": \"Tenali Ramkrishna\",\n" +
-                "    \"gender\": \"male\",\n" +
-                "    \"email\": \"tenali.ramkrishnace.com\",\n" +
-                "    \"status\": \"active\"\n" +
-                "}";
-        usersClient.CreateUser(body)
+
+        String email = "vinuthamahadev.com";
+        String name = "Vinutha Mahadev";
+        String gender = "female";
+        String status = "active";
+
+        CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+
+        usersClient.CreateUser(requestBody)
                 .then()
                     .log().body()
                     .statusCode(422)

@@ -1,10 +1,13 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import users.Create.CreateUserRequestBody;
 import users.UsersClient;
 
+import java.io.IOException;
 import java.util.UUID;
 
 
@@ -21,21 +24,30 @@ public class createUserTests {
         @Test
         public void createMaleUser () {
 
-            String email = String.format("%s@gmail.com",UUID.randomUUID());
+            String email = String.format("%s@gmail.com", UUID.randomUUID());
+            String name = "Tenali Ramkrishna";
+            String gender = "male";
+            String status = "active";
             //1.Arrange - Arranging the data to create user
             //creating a variable that needs to be passed to create user method - cmd+option+V
-            String body = String.format("{\n" +
-                    "    \"name\": \"Tenali Ramkrishna\",\n" +
-                    "    \"gender\": \"male\",\n" +
+            //To use String object instead of String body
+            // String body is unused so it can be removed in CreateUserTests and CreateUserNegativeTests
+            /*String body = "{\n" +
+                    "   \"name\": \"" + name +"\",\n" +
+                    "    \"gender\": \""+ gender +"\",\n" +
                     "    \"email\": \"%s\",\n" +
-                    "    \"status\": \"active\"\n" +
-                    "}",email);
-             //to create a parameter cmd+option+P
+                    "    \"status\": \""+ status +"\"\n" +
+                    "}";*/
+
+
+            CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+
+            //to create a parameter cmd+option+P
             //2.Act - calling the API to create user
 
             //CreateUser method can be used by many other methods, hence saved the CreateUser method in seperate class
             //hence it will be used as reference to access CreateUser(body)
-            usersClient.CreateUser(body)
+            usersClient.CreateUser(requestBody)
                     .then()
                         .statusCode(201)
                         .log().body()
@@ -52,16 +64,15 @@ public class createUserTests {
 
             String email = String.format("%s@gmail.com",UUID.randomUUID());
 
+            String name = "Vinutha Mahadev";
+            String gender = "female";
+            String status = "active";
+
             //1.Arrange - Arranging the data to create user
-            String body = String.format("{\n" +
-                    "    \"name\": \"Vinutha Mahadev\",\n" +
-                    "    \"gender\": \"male\",\n" +
-                    "    \"email\": \"%s\",\n" +
-                    "    \"status\": \"active\"\n" +
-                    "}",email);
+            CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
 
             //2.Act - calling the API to create user
-            usersClient.CreateUser(body)
+            usersClient.CreateUser(requestBody)
                     .then()
                         .statusCode(201)
                         .log().body()

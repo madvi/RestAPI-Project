@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5218326b-dc17-461c-8715-74faa2d411bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/createUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/getAllUsersTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/getAllUsersTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.createUserNegativeTests">
+  <component name="RunManager" selected="Gradle.createUserTests">
     <configuration name="createUserNegativeTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -138,7 +138,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="getAllUsersTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="createUserTests.createFemaleUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -151,7 +151,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;getAllUsersTests&quot;" />
+            <option value="&quot;createUserTests.createFemaleUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -161,7 +161,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="getAllUsersTests.GetListOfUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="createUserTests.createMaleUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -174,7 +174,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;getAllUsersTests.GetListOfUsers&quot;" />
+            <option value="&quot;createUserTests.createMaleUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -186,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.createUserNegativeTests" />
         <item itemvalue="Gradle.createUserTests" />
-        <item itemvalue="Gradle.getAllUsersTests" />
-        <item itemvalue="Gradle.getAllUsersTests.GetListOfUsers" />
         <item itemvalue="Gradle.createUserNegativeTests.shouldNotAllowNegativeTests" />
+        <item itemvalue="Gradle.createUserTests.createMaleUser" />
+        <item itemvalue="Gradle.createUserTests.createFemaleUser" />
+        <item itemvalue="Gradle.createUserNegativeTests" />
       </list>
     </recent_temporary>
   </component>

@@ -13,6 +13,8 @@ dependencies {
 
     testImplementation group: 'org.testng', name: 'testng', version: '7.6.1'
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.1.1'
+    //Dependency to convert from string json body to string Object
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.0'
 
 }
 
