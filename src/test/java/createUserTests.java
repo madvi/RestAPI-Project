@@ -40,7 +40,10 @@ public class createUserTests {
                     "}";*/
 
 
-            CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+            //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+            //Without calling a constructor builder() method is creating a object
+            CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
+                                                 .email(email).status(status).build();
 
             //to create a parameter cmd+option+P
             //2.Act - calling the API to create user
@@ -69,7 +72,9 @@ public class createUserTests {
             String status = "active";
 
             //1.Arrange - Arranging the data to create user
-            CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+            //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+            CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
+                    .email(email).status(status).build();
 
             //2.Act - calling the API to create user
             usersClient.CreateUser(requestBody)

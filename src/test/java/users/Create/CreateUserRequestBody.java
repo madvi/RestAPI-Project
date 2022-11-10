@@ -1,5 +1,12 @@
 package users.Create;
 
+import lombok.Builder;
+import lombok.Getter;
+
+//@Getter is to cut of the multiple getter methods
+@Getter
+//@Builder is to avoid creating a object by calling constructor
+@Builder
 public class CreateUserRequestBody {
 
     private String name;
@@ -7,25 +14,7 @@ public class CreateUserRequestBody {
     private String email;
     private String status;
 
-    public CreateUserRequestBody(String name, String gender, String email, String status) {
-        this.name = name;
-        this.gender = gender;
-        this.email = email;
-        this.status = status;
-    }
-    public String getName() {
-        return name;
+
     }
 
-    public String getGender() {
-        return gender;
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-}
