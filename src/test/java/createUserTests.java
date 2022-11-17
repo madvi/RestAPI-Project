@@ -1,13 +1,10 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.Create.CreateUserRequestBody;
+import users.Create.Response.CreateUserResponse;
 import users.UsersClient;
 
-import java.io.IOException;
 import java.util.UUID;
 
 
@@ -50,15 +47,19 @@ public class createUserTests {
 
             //CreateUser method can be used by many other methods, hence saved the CreateUser method in seperate class
             //hence it will be used as reference to access CreateUser(body)
-            usersClient.CreateUser(requestBody)
-                    .then()
-                        .statusCode(201)
-                        .log().body()
+            CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
+            Assert.assertEquals(createUserResponse.getStatusCode(),201);
+            Assert.assertEquals(createUserResponse.getEmail(),requestBody.getEmail());
+            Assert.assertNotNull(createUserResponse.getId());
+
+
+            //Modifying below assertions and adding it above
 
             //3.Assert - adding assertions to evaluate
+                        /*.statusCode(201)
                         .body("id", Matchers.notNullValue())
                         .body("email", Matchers.equalTo(email))
-                        .body("name", Matchers.equalTo("Tenali Ramkrishna"));
+                        .body("name", Matchers.equalTo("Tenali Ramkrishna"));*/
 
 
         }
@@ -77,15 +78,16 @@ public class createUserTests {
                     .email(email).status(status).build();
 
             //2.Act - calling the API to create user
-            usersClient.CreateUser(requestBody)
-                    .then()
-                        .statusCode(201)
-                        .log().body()
+            CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
+            Assert.assertEquals(createUserResponse.getStatusCode(),201);
+            Assert.assertEquals(createUserResponse.getEmail(),requestBody.getEmail());
+            Assert.assertNotNull(createUserResponse.getId());
+
 
             //3.Assert - adding assertions to evaluate
-                        .body("id", Matchers.notNullValue())
-                        .body("email", Matchers.equalTo(email))
-                        .body("name", Matchers.equalTo("Vinutha Mahadev"));
+//                        .body("id", Matchers.notNullValue())
+//                        .body("email", Matchers.equalTo(email))
+//                        .body("name", Matchers.equalTo("Vinutha Mahadev"));
 
 
         }

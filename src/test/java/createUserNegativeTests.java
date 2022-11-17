@@ -1,7 +1,10 @@
 import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.Create.CreateUserRequestBody;
+import users.Create.Response.CreateUserErrorResponse;
+import users.Create.Response.CreateUserResponse;
 import users.UsersClient;
 
 import java.util.UUID;
@@ -27,14 +30,18 @@ public class createUserNegativeTests {
         CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
                                                     .email(email).status(status).build();
 
-        usersClient.CreateUser(requestBody)
-                .then()
-                    .log().body()
-                    .statusCode(422)
-                    //.body(Matchers.hasItem(Matchers.hasEntry("field","email")))
-                    .body("field", Matchers.hasItem("email"))
-                    //.body(Matchers.hasItem(Matchers.hasEntry("message","is invalid")))
-                    .body("message", Matchers.hasItem("is invalid"));
+        CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
+        Assert.assertEquals(errorResponse.getStatusCode(),422);
+        errorResponse.assertHasError("email","invalid");
+
+
+
+//                .then()
+//                    .statusCode(422)
+//                    //.body(Matchers.hasItem(Matchers.hasEntry("field","email")))
+//                    .body("field", Matchers.hasItem("email"))
+//                    //.body(Matchers.hasItem(Matchers.hasEntry("message","is invalid")))
+//                    .body("message", Matchers.hasItem("is invalid"));
 
     }
 }
