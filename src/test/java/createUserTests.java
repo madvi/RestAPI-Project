@@ -49,20 +49,16 @@ public class createUserTests {
             //CreateUser method can be used by many other methods, hence saved the CreateUser method in seperate class
             //hence it will be used as reference to access CreateUser(body)
             CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
-            Assert.assertEquals(createUserResponse.getStatusCode(),201);
-            Assert.assertEquals(createUserResponse.getData().getEmail(),requestBody.getEmail());
-            Assert.assertNotNull(createUserResponse.getData().getId());
 
+            //assetUser is a method created in createUserResponse class which accepts request body and all
+            // assertions for response will be stored here
 
-            //Modifying below assertions and adding it above
-
+            createUserResponse.assertUser(requestBody);
             //3.Assert - adding assertions to evaluate
                         /*.statusCode(201)
                         .body("id", Matchers.notNullValue())
                         .body("email", Matchers.equalTo(email))
                         .body("name", Matchers.equalTo("Tenali Ramkrishna"));*/
-
-
         }
         @Test
         public void createFemaleUser () {
@@ -80,9 +76,7 @@ public class createUserTests {
 
             //2.Act - calling the API to create user
             CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
-            Assert.assertEquals(createUserResponse.getStatusCode(),201);
-            Assert.assertEquals(createUserResponse.getData().getEmail(),requestBody.getEmail());
-            Assert.assertNotNull(createUserResponse.getData().getId());
+            createUserResponse.assertUser(requestBody);
 
 
             //3.Assert - adding assertions to evaluate

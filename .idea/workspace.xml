@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5218326b-dc17-461c-8715-74faa2d411bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/users/Create/Response/CreateUserErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/Create/Response/CreateUserErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/createUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/users/Create/Response/CreateUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/Create/Response/CreateUserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
