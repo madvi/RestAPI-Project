@@ -23,11 +23,13 @@ public class UsersClient {
         return createUserResponse;
     }
 
+    //creating a method which accepts CreateUserRequestBody
     public static CreateUserErrorResponse createUserExpectedError(CreateUserRequestBody body){
+        //create object returns response object of restAssured which need to be deserialized
         Response response = create(body);
+        //deserializing the response body
         CreateUserErrorResponse errorResponse = response.as(CreateUserErrorResponse.class);
         errorResponse.setStatusCode(response.statusCode());
-
         return errorResponse;
     }
 

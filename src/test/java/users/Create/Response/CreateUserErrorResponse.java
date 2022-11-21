@@ -15,24 +15,28 @@ public class CreateUserErrorResponse {
     @Setter
     private int statusCode;
 
-    @JsonProperty
-    private List<dataList> dataLists;
+    private String meta;
 
-    public void assertHasError(String field,String message) {
-        int size = dataLists.stream()
-                .filter(dataList -> dataList.equals(field))
-                .filter(dataList -> dataList.equals(message))
+    //While running it will be looking for "data" which we have used as "dataList"
+    //by using JsonProperty we can tell dataList is nothing but data
+    @JsonProperty("data")
+    private List<Data> dataList;
+
+    //Iterating over data array, and one item should should match with field = email and message = is invalid
+    public void assertHasError(String field, String message) {
+        int size = dataList.stream()
+                .filter(data -> data.getField().equals(field))
+                .filter(data -> data.getMessage().equals(message))
                 .collect(Collectors.toList())
                 .size();
+        //one item in the array should meet the condition from -ve test class, hence asserting for the size 1
         Assert.assertEquals(size,1);
     }
 
-
-    //Inner class
-    public static class dataList{
+    @Getter
+    public static class Data{
         private String field;
         private String message;
 
     }
-
 }

@@ -14,3 +14,4 @@ public class CreateUserResponse {
 
 }
 //CreateUserResponse is the pojo class(that held all the response data)
+//for deserializing json response to CreateUserResponse class

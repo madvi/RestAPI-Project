@@ -30,16 +30,33 @@ public class createUserNegativeTests {
         CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
                                                     .email(email).status(status).build();
 
-        /*CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
+        CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
         Assert.assertEquals(errorResponse.getStatusCode(),422);
-        errorResponse.assertHasError("email","invalid");*/
+        errorResponse.assertHasError("email","is invalid");
 
-        usersClient.create(requestBody)
+        /*usersClient.create(requestBody)
 
                 .then()
                     .statusCode(422)
                     .body("data",Matchers.hasItem(Matchers.hasEntry("field","email")))
-                    .body("data",Matchers.hasItem(Matchers.hasEntry("message","is invalid")));
+                    .body("data",Matchers.hasItem(Matchers.hasEntry("message","is invalid")));*/
+
+    }
+    @Test
+    public void shouldNotAllowUserToCreateWithBlankGenderAndStatus(){
+        String email = "vinuthamahadev11@gmail.com";
+        String name = "Vinutha Mahadev";
+        String gender = "";
+        String status = "";
+
+        //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
+                .email(email).status(status).build();
+
+        CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
+        Assert.assertEquals(errorResponse.getStatusCode(),422);
+        errorResponse.assertHasError("gender","can't be blank, can be male of female");
+        errorResponse.assertHasError("status","can't be blank");
 
 
     }
