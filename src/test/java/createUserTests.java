@@ -5,6 +5,7 @@ import users.Create.CreateUserRequestBody;
 import users.Create.Response.CreateUserResponse;
 import users.UsersClient;
 
+
 import java.util.UUID;
 
 
@@ -49,8 +50,8 @@ public class createUserTests {
             //hence it will be used as reference to access CreateUser(body)
             CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
             Assert.assertEquals(createUserResponse.getStatusCode(),201);
-            Assert.assertEquals(createUserResponse.getEmail(),requestBody.getEmail());
-            Assert.assertNotNull(createUserResponse.getId());
+            Assert.assertEquals(createUserResponse.getData().getEmail(),requestBody.getEmail());
+            Assert.assertNotNull(createUserResponse.getData().getId());
 
 
             //Modifying below assertions and adding it above
@@ -80,8 +81,8 @@ public class createUserTests {
             //2.Act - calling the API to create user
             CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
             Assert.assertEquals(createUserResponse.getStatusCode(),201);
-            Assert.assertEquals(createUserResponse.getEmail(),requestBody.getEmail());
-            Assert.assertNotNull(createUserResponse.getId());
+            Assert.assertEquals(createUserResponse.getData().getEmail(),requestBody.getEmail());
+            Assert.assertNotNull(createUserResponse.getData().getId());
 
 
             //3.Assert - adding assertions to evaluate

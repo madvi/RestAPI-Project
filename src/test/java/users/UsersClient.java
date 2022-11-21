@@ -16,8 +16,8 @@ public class UsersClient {
     public  CreateUserResponse CreateUser(CreateUserRequestBody body) {
 
         Response response = create(body);
-        //Asking restAssured to concert response into its type
-        //we will be getting response body in deserialized form
+        //Asking restAssured to convert response into createUserResponse type
+        //we will be getting response body in deserialized(object) form
         CreateUserResponse createUserResponse = response.as(CreateUserResponse.class);
         createUserResponse.setStatusCode(response.statusCode());
         return createUserResponse;
@@ -41,8 +41,9 @@ public class UsersClient {
                             .header("Authorization", "Bearer 7f120bbebae7c79e6e536e658a0dc729127b618c79fd4f0e483d83f3e3bc2a40")
                             .body(body)
                         .when()
-                            .post("https://gorest.co.in/public/v2/users");
-
+                            .post("https://gorest.co.in/public/v1/users");
+          //logging body is used in all the tests, so it is used in this class, where this class's code will be used
+        // in all the tests
           response
                   .then()
                       .log().body();
@@ -55,6 +56,6 @@ public class UsersClient {
     public static Response getAllUsers() {
         return given()
                 .when()
-                .get("https://gorest.co.in/public/v2/users");
+                .get("https://gorest.co.in/public/v1/users");
     }
 }

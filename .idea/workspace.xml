@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5218326b-dc17-461c-8715-74faa2d411bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserNegativeTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/createUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/createUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/users/Create/Response/CreateUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/Create/Response/CreateUserResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/users/UsersClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.getAllUsersTests.GetListOfUsers">
+  <component name="RunManager" selected="Gradle.createUserNegativeTests.shouldNotAllowNegativeTests">
     <configuration name="createUserNegativeTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -187,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.createUserNegativeTests.shouldNotAllowNegativeTests" />
+        <item itemvalue="Gradle.createUserNegativeTests" />
+        <item itemvalue="Gradle.createUserTests" />
         <item itemvalue="Gradle.getAllUsersTests.GetListOfUsers" />
         <item itemvalue="Gradle.getAllUsersTests" />
-        <item itemvalue="Gradle.createUserNegativeTests.shouldNotAllowNegativeTests" />
-        <item itemvalue="Gradle.createUserTests" />
-        <item itemvalue="Gradle.createUserNegativeTests" />
       </list>
     </recent_temporary>
   </component>

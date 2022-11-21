@@ -30,18 +30,17 @@ public class createUserNegativeTests {
         CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
                                                     .email(email).status(status).build();
 
-        CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
+        /*CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
         Assert.assertEquals(errorResponse.getStatusCode(),422);
-        errorResponse.assertHasError("email","invalid");
+        errorResponse.assertHasError("email","invalid");*/
 
+        usersClient.create(requestBody)
 
+                .then()
+                    .statusCode(422)
+                    .body("data",Matchers.hasItem(Matchers.hasEntry("field","email")))
+                    .body("data",Matchers.hasItem(Matchers.hasEntry("message","is invalid")));
 
-//                .then()
-//                    .statusCode(422)
-//                    //.body(Matchers.hasItem(Matchers.hasEntry("field","email")))
-//                    .body("field", Matchers.hasItem("email"))
-//                    //.body(Matchers.hasItem(Matchers.hasEntry("message","is invalid")))
-//                    .body("message", Matchers.hasItem("is invalid"));
 
     }
 }
