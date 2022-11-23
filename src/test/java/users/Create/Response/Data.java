@@ -3,7 +3,7 @@ package users.Create.Response;
 import lombok.Getter;
 
 @Getter
-public class Data {
+public class Data<D> {
 
     private int id;
     private String name;

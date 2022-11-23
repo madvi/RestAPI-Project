@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.UsersClient;
+import users.getAllUsers.GetAllUsersResponse;
 
 import static io.restassured.RestAssured.given;
 
@@ -18,13 +19,12 @@ public class getAllUsersTests {
     @Test
     public void GetListOfUsers(){
 
-        usersClient.getAllUsers()
-                .then()
-                    .statusCode(200)
-                    //adding assertions to verify no of items in array and to evaluate gender element
+        GetAllUsersResponse getAllUsersResponse = usersClient.getAllUsers();
 
-                    .body("gender",Matchers.hasItem("male"))
-                    .log().body();
+        //Assert
+        Assert.assertEquals(getAllUsersResponse.getStatusCode(),200);
+        Assert.assertEquals(getAllUsersResponse.getDataList().size(),10);
+        Assert.assertTrue(getAllUsersResponse.hasMaleUser());
 
     }
 
