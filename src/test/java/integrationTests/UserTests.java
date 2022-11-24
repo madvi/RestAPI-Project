@@ -5,17 +5,18 @@ import org.testng.annotations.Test;
 import users.Create.CreateUserRequestBody;
 import users.Create.Response.CreateUserResponse;
 import users.UsersClient;
+import users.UsersService;
 
 import java.util.UUID;
 
 
 public class UserTests {
 
-    private UsersClient usersClient;
+    private UsersService usersService;
 
     @BeforeClass
     public void beforeClass() {
-        usersClient = new UsersClient();
+        usersService = new UsersService();
     }
 
 
@@ -37,14 +38,14 @@ public class UserTests {
 
             CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().build();
             //instead of returning a response, we are fetching id and store it in an variable
-            int id = usersClient.CreateUser(requestBody).getData().getId();
+            int id = usersService.CreateUser(requestBody).getData().getId();
 
             //assetUser is a method created in createUserResponse class which accepts request body and all
             // assertions for response will be stored here
 
             //Assert
             //invoking another api getUser by id and it should match with request body of createUser api
-            usersClient.getUser(id).assertUser(requestBody);
+            usersService.getUser(id).assertUser(requestBody);
 
         }
 

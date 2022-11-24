@@ -5,21 +5,22 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.UsersClient;
+import users.UsersService;
 import users.getAllUsers.GetAllUsersResponse;
 
 import static io.restassured.RestAssured.given;
 
 public class getAllUsersTests {
 
-    private UsersClient usersClient;
+    private UsersService usersService;
     @BeforeClass
     public void beforeClass(){
-        usersClient = new UsersClient();
+        usersService = new UsersService();
     }
     @Test
     public void GetListOfUsers(){
 
-        GetAllUsersResponse getAllUsersResponse = usersClient.getAllUsers();
+        GetAllUsersResponse getAllUsersResponse = usersService.getAllUsers();
 
         //Assert
         Assert.assertEquals(getAllUsersResponse.getStatusCode(),200);

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import users.Create.CreateUserRequestBody;
 import users.Create.Response.CreateUserResponse;
 import users.UsersClient;
+import users.UsersService;
 
 
 import java.util.UUID;
@@ -11,11 +12,11 @@ import java.util.UUID;
 
 public class createUserTests {
 
-    private UsersClient usersClient;
+    private UsersService usersService;
 
     @BeforeClass
     public void beforeClass() {
-        usersClient = new UsersClient();
+        usersService = new UsersService();
     }
 
 
@@ -49,7 +50,7 @@ public class createUserTests {
             //CreateUser method can be used by many other methods, hence saved the CreateUser method in seperate class
             //hence it will be used as reference to access CreateUser(body)
            CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().gender("male").build();
-            CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
+            CreateUserResponse createUserResponse = usersService.CreateUser(requestBody);
 
             //assetUser is a method created in createUserResponse class which accepts request body and all
             // assertions for response will be stored here
@@ -73,7 +74,7 @@ public class createUserTests {
 
             //2.Act - calling the API to create user
             CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().name("Vinutha").gender("female").build();
-            CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
+            CreateUserResponse createUserResponse = usersService.CreateUser(requestBody);
             createUserResponse.assertUser(requestBody);
 
 

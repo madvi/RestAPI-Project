@@ -47,16 +47,19 @@ public class CreateUserRequestBody {
             CreateUserRequestBody createUserRequestBody = new CreateUserRequestBody(this);
             return createUserRequestBody;
         }
+
+        //to accept invalid email
         public Builder email(String email){
             this.email = email;
             return this;
         }
-
+        //to accept status = blank
         public Builder status(String status){
             this.status = status;
             return this;
         }
 
+        //to accept name for female user
         public Builder name(String name){
             this.name = name;
             return this;

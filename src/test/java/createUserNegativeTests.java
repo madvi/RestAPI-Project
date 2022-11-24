@@ -6,16 +6,17 @@ import users.Create.CreateUserRequestBody;
 import users.Create.Response.CreateUserErrorResponse;
 import users.Create.Response.CreateUserResponse;
 import users.UsersClient;
+import users.UsersService;
 
 import java.util.UUID;
 
 public class createUserNegativeTests {
 
-    private UsersClient usersClient;
+    private UsersService usersService;
 
     @BeforeClass
     public void beforeClass(){
-        usersClient = new UsersClient();
+        usersService = new UsersService();
     }
 
     @Test
@@ -31,7 +32,7 @@ public class createUserNegativeTests {
                                                     .email(email).status(status).build();*/
 
         CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().email("vinuthamahadev.com").build();
-        CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
+        CreateUserErrorResponse errorResponse = usersService.createUserExpectedError(requestBody);
         Assert.assertEquals(errorResponse.getStatusCode(),422);
         errorResponse.assertHasError("email","is invalid");
 
@@ -56,7 +57,7 @@ public class createUserNegativeTests {
 
         CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().gender("").status("").build();
 
-        CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
+        CreateUserErrorResponse errorResponse = usersService.createUserExpectedError(requestBody);
         Assert.assertEquals(errorResponse.getStatusCode(),422);
         errorResponse.assertHasError("gender","can't be blank, can be male of female");
         errorResponse.assertHasError("status","can't be blank");
