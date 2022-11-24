@@ -6,6 +6,7 @@ import users.Create.CreateUserRequestBody;
 import users.Create.Response.CreateUserErrorResponse;
 import users.Create.Response.CreateUserResponse;
 import users.getAllUsers.GetAllUsersResponse;
+import users.getUserByID.GetAllUserById;
 
 import static io.restassured.RestAssured.given;
 
@@ -56,7 +57,7 @@ public class UsersClient {
 
     }
 
-    public static GetAllUsersResponse getAllUsers() {
+    public  GetAllUsersResponse getAllUsers() {
         Response response = given()
                 .when()
                 .get("https://gorest.co.in/public/v1/users");
@@ -70,6 +71,22 @@ public class UsersClient {
 
         return getAllUsersResponse;
 
+
+    }
+
+    public GetAllUserById getUser(int id){
+        Response response = given()
+                .pathParam("id",id)
+                .header("Authorization","Bearer 7f120bbebae7c79e6e536e658a0dc729127b618c79fd4f0e483d83f3e3bc2a40")
+            .when()
+                .get("https://gorest.co.in/public/v1/users/{id}");
+
+        response.then().log().body();
+        int statusCode = response.statusCode();
+
+        GetAllUserById getAllUserById = response.as(GetAllUserById.class);
+        getAllUserById.setStatusCode(200);
+        return getAllUserById;
 
     }
 }

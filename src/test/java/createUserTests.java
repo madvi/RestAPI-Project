@@ -22,7 +22,7 @@ public class createUserTests {
         @Test
         public void createMaleUser () {
 
-            String email = String.format("%s@gmail.com", UUID.randomUUID());
+            /*String email = String.format("%s@gmail.com", UUID.randomUUID());
             String name = "Tenali Ramkrishna";
             String gender = "male";
             String status = "active";
@@ -40,14 +40,15 @@ public class createUserTests {
 
             //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
             //Without calling a constructor builder() method is creating a object
-            CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
-                                                 .email(email).status(status).build();
+            /*CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
+                                                 .email(email).status(status).build();*/
 
             //to create a parameter cmd+option+P
             //2.Act - calling the API to create user
 
             //CreateUser method can be used by many other methods, hence saved the CreateUser method in seperate class
             //hence it will be used as reference to access CreateUser(body)
+           CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().gender("male").build();
             CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
 
             //assetUser is a method created in createUserResponse class which accepts request body and all
@@ -63,18 +64,15 @@ public class createUserTests {
         @Test
         public void createFemaleUser () {
 
-            String email = String.format("%s@gmail.com",UUID.randomUUID());
-
-            String name = "Vinutha Mahadev";
-            String gender = "female";
-            String status = "active";
+            /*String email = String.format("%s@gmail.com",UUID.randomUUID());
 
             //1.Arrange - Arranging the data to create user
             //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
-            CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
-                    .email(email).status(status).build();
+            CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name("Vinutha Mahadev").gender("female")
+                    .email(email).status("active").build();*/
 
             //2.Act - calling the API to create user
+            CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().name("Vinutha").gender("female").build();
             CreateUserResponse createUserResponse = usersClient.CreateUser(requestBody);
             createUserResponse.assertUser(requestBody);
 

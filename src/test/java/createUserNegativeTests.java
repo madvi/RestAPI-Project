@@ -21,15 +21,16 @@ public class createUserNegativeTests {
     @Test
     public void shouldNotAllowNegativeTests(){
 
-        String email = "vinuthamahadev.com";
+        /*String email = "vinuthamahadev.com";
         String name = "Vinutha Mahadev";
         String gender = "female";
         String status = "active";
 
         //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
         CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
-                                                    .email(email).status(status).build();
+                                                    .email(email).status(status).build();*/
 
+        CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().email("vinuthamahadev.com").build();
         CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
         Assert.assertEquals(errorResponse.getStatusCode(),422);
         errorResponse.assertHasError("email","is invalid");
@@ -44,14 +45,16 @@ public class createUserNegativeTests {
     }
     @Test
     public void shouldNotAllowUserToCreateWithBlankGenderAndStatus(){
-        String email = "vinuthamahadev11@gmail.com";
+        /*String email = "vinuthamahadev11@gmail.com";
         String name = "Vinutha Mahadev";
         String gender = "";
         String status = "";
 
         //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,gender,email,status);
         CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name(name).gender(gender)
-                .email(email).status(status).build();
+                .email(email).status(status).build();*/
+
+        CreateUserRequestBody requestBody =  new CreateUserRequestBody.Builder().gender("").status("").build();
 
         CreateUserErrorResponse errorResponse = usersClient.createUserExpectedError(requestBody);
         Assert.assertEquals(errorResponse.getStatusCode(),422);
