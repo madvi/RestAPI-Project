@@ -4,8 +4,10 @@ import io.restassured.response.Response;
 import users.Create.CreateUserRequestBody;
 import users.Create.Response.CreateUserErrorResponse;
 import users.Create.Response.CreateUserResponse;
+import users.Create.Response.UpdatedUserResponse;
 import users.getAllUsers.GetAllUsersResponse;
-import users.getUserByID.GetAllUserById;
+import users.getUserByID.GetAllUserErrorResponse;
+import users.getUserByID.GetAllUserResponseById;
 
 public class UsersService {
 
@@ -23,7 +25,7 @@ public class UsersService {
     }
 
     //creating a method which accepts CreateUserRequestBody
-    public static CreateUserErrorResponse createUserExpectedError(CreateUserRequestBody body){
+    public static CreateUserErrorResponse createUserExpectedError(CreateUserRequestBody body) {
         //create object returns response object of restAssured which need to be deserialized
         Response response = new UsersClient().create(body);
         //deserializing the response body
@@ -43,14 +45,42 @@ public class UsersService {
 
 
     }
-    public GetAllUserById getUser(int id){
+
+    public GetAllUserResponseById getUser(int id) {
         Response response = new UsersClient().get(id);
 
         int statusCode = response.statusCode();
 
-        GetAllUserById getAllUserById = response.as(GetAllUserById.class);
+        GetAllUserResponseById getAllUserById = response.as(GetAllUserResponseById.class);
         getAllUserById.setStatusCode(200);
         return getAllUserById;
 
+    }
+
+    public int deleteUser(int id) {
+        Response response = new UsersClient().delete(id);
+
+        return response.statusCode();
+    }
+
+    public GetAllUserErrorResponse getUserExpectingError(int id) {
+        Response response = new UsersClient().get(id);
+
+        int statusCode = response.statusCode();
+
+        GetAllUserErrorResponse getAllUserErrorResponse = response.as(GetAllUserErrorResponse.class);
+        getAllUserErrorResponse.setStatusCode(statusCode);
+        return getAllUserErrorResponse;
+    }
+
+
+    public UpdatedUserResponse getUpdatedUserDetails(int id,CreateUserRequestBody requestBody) {
+        Response response = new UsersClient().patch(id,requestBody);
+        int statusCode = response.statusCode();
+
+        UpdatedUserResponse updatedUserResponse = response.as(UpdatedUserResponse.class);
+        updatedUserResponse.setStatusCode(statusCode);
+
+        return updatedUserResponse;
     }
 }

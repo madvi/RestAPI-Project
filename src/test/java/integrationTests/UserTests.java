@@ -1,13 +1,12 @@
 package integrationTests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.Create.CreateUserRequestBody;
-import users.Create.Response.CreateUserResponse;
-import users.UsersClient;
-import users.UsersService;
+import users.Create.Response.UpdatedUserResponse;
 
-import java.util.UUID;
+import users.UsersService;
 
 
 public class UserTests {
@@ -48,6 +47,41 @@ public class UserTests {
             usersService.getUser(id).assertUser(requestBody);
 
         }
+        @Test
+        public void shouldDeleteUser () {
 
+            //Arrange
+            CreateUserRequestBody requestBody = new CreateUserRequestBody.Builder().build();
+
+            //Act
+            int id = usersService.CreateUser(requestBody).getData().getId();
+            int statusCode = usersService.deleteUser(id);
+
+            //Assert
+            //invoking another api getUser by id and it should match with request body of createUser api
+            Assert.assertEquals(statusCode, 204);
+            usersService.getUserExpectingError(id).assertError(404,"Resource not found");
+
+        }
+
+        @Test
+        public void shouldEditUsername(){
+
+            //Arrange
+            CreateUserRequestBody requestBody = new CreateUserRequestBody.Builder().build();
+            CreateUserRequestBody updateRequestBody = new CreateUserRequestBody.Builder().name("Tenali ram").build();
+
+            //Act
+            int id = usersService.CreateUser(requestBody).getData().getId();
+
+            UpdatedUserResponse updatedUserResponse = usersService.getUpdatedUserDetails(id,updateRequestBody);
+
+            //Assert
+           // usersService.getUser(id).assertUser(updatedUserResponse);
+           updatedUserResponse.assertUser(updatedUserResponse);
+
+
+
+        }
     }
 

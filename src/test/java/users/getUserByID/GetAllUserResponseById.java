@@ -6,7 +6,7 @@ import org.testng.Assert;
 import users.Create.CreateUserRequestBody;
 
 @Getter
-public class GetAllUserById {
+public class GetAllUserResponseById {
 
     @Setter
     private int statusCode;
